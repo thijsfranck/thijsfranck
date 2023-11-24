@@ -2,7 +2,7 @@ const projectName = 'ngx-sse-backend';
 const packageRoot = 'libs/ngx-sse-backend';
 
 module.exports = {
-  extends: 'semantic-release-npm-github-publish',
+  extends: '../../release.config.js',
   pkgRoot: `dist/${packageRoot}`,
   tagFormat: projectName + '-v${version}',
   commitPaths: [`${packageRoot}/*`],
