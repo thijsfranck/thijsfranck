@@ -2,6 +2,14 @@
   "name": "@thijsfranck/ngx-sse-backend",
   "version": "0.0.0-semantic-release",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thijsfranck/thijsfranck.git",
+    "directory": "thijsfranck/ngx-sse-backend"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "peerDependencies": {
     "@angular/common": "^17.0.0",
     "@angular/core": "^17.0.0",
