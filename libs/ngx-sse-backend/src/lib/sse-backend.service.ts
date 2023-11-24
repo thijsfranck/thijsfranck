@@ -65,9 +65,9 @@ export class NgxSseBackend extends HttpBackend {
   }
 
   /**
-   * Converts Angular HttpRequest headers to a format suitable for the fetchEventSource function.
+   * Converts Angular HttpRequest headers to a format suitable for the `fetchEventSource` function.
    *
-   * @param headers HttpRequest object containing headers to be mapped.
+   * @param headers HttpHeaders object containing headers to be mapped.
    * @returns Record<string, string> Object representing the headers in key-value pairs.
    */
   private convertHeadersForSse(headers: HttpHeaders): Record<string, string> {
