@@ -1,0 +1,53 @@
+{
+  "name": "ngx-sse-backend",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/ngx-sse-backend/src",
+  "prefix": "thijsfranck",
+  "tags": [],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/ngx-sse-backend/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ngx-sse-backend/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ngx-sse-backend/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/ngx-sse-backend/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/ngx-sse-backend/**/*.ts",
+          "libs/ngx-sse-backend/**/*.html",
+          "libs/ngx-sse-backend/package.json"
+        ]
+      }
+    },
+    "release": {
+      "dependsOn": ["lint", "test", "build"],
+      "executor": "nx:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npx semantic-release-plus --extends ./libs/ngx-sse-backend/release.config.js",
+        "parallel": false
+      }
+    }
+  }
+}
