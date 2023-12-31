@@ -61,5 +61,6 @@
     "@nx/angular:component": {
       "style": "scss"
     }
-  }
+  },
+  "plugins": ["@nxlv/python"]
 }
